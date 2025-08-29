@@ -1,4 +1,4 @@
-package com.example.odalvinoeventoapp
+package net.frontuari.odaalvino
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,16 +1,34 @@
+
+// 👇 Agregar al principio la compilacion aca, para orientar la version de la actualizacion
+ext.flutter = [
+    compileSdkVersion: 35,
+    targetSdkVersion : 35,
+    minSdkVersion    : 21,
+    ndkVersion       : '23.1.7779620'
+]
 allprojects {
     repositories {
         google()
         mavenCentral()
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.bouncycastle' &&
+                details.requested.name == 'bcprov-jdk18on') {
+                // 👇 Fuerza una versión compatible con Java 17 o inferior
+                details.useVersion '1.76'
+            }
+        }
+    }
 }
 
-rootProject.buildDir = "../build"
+rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 subprojects {
-    project.evaluationDependsOn(":app")
+    project.evaluationDependsOn(':app')
 }
 
 tasks.register("clean", Delete) {

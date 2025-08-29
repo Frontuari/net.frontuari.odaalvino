@@ -121,25 +121,25 @@ class _PresentationsState extends State<Presentations> {
                 elevation: 0,
                 actions:  [
                   
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: GestureDetector(
-                        onTap: () async {
+                    // Padding(
+                    //   padding: const EdgeInsets.only(right: 20),
+                    //   child: GestureDetector(
+                    //     onTap: () async {
 
-                           String? barCode =  await Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => QRScannerScreen(),
-                          ),
-                        );
+                    //        String? barCode =  await Navigator.of(context).push(
+                    //       MaterialPageRoute(
+                    //         builder: (context) => QRScannerScreen(),
+                    //       ),
+                    //     );
 
-                        if (barCode != null) {
-                          setState(() {
-                            couponController.text = barCode;
-                          });
-                        }
-                        } ,
-                        child: Image.asset('lib/assets/QR.png')),
-                    ),
+                    //     if (barCode != null) {
+                    //       setState(() {
+                    //         couponController.text = barCode;
+                    //       });
+                    //     }
+                    //     } ,
+                    //     child: Image.asset('lib/assets/QR.png')),
+                    // ),
                   
                   ],
               ),
